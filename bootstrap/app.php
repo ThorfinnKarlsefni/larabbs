@@ -11,7 +11,7 @@
 |
 */
 
-required __DIR__ . "/helpers.php";
+require_once __DIR__ . '/helpers.php';
 
 
 $app = new Illuminate\Foundation\Application(
