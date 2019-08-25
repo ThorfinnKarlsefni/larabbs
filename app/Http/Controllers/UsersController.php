@@ -4,12 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-
+use Auth;
 use App\Http\Requests\UserRequest;
 use App\Handlers\ImageUploadHandler;
 
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth',['except' => ['show']]);
+    }
+
     public function show(User $user)
     {
         return view('users.show',compact('user'));
@@ -17,11 +22,16 @@ class UsersController extends Controller
 
     public function edit(User $user)
     {
+        $this->authorize('update',$user);
+
         return view('users.edit',compact('user'));
     }
 
      public function update(UserRequest $request,ImageUploadHandler $uploader, User $user)
     {
+
+        $this->authorize('update',$user);
+
         $data = $request->all();
 
         if($request->avatar){
