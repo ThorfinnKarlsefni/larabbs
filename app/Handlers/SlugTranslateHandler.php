@@ -40,10 +40,9 @@ class SlugTranslateHandler
 
         $result  = json_decode($response->getBody(),true);
 
-
         // 尝试获取获取翻译结果
-        if(isset($result['transale_result'][0]['dst'])){
-            return str_slug($result['translate_result'][0]['dst']);
+        if(isset($result['trans_result'][0]['dst'])){
+            return str_slug($result['trans_result'][0]['dst']);
         }
         else{
             // 如果百度翻译没有结果，使用拼音作为后备计划。
