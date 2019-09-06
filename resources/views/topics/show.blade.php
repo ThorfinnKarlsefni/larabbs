@@ -60,9 +60,16 @@
                         </form>
                     </div>
                 @endcan
-
             </div>
         </div>
+         {{-- 用户回复列表 --}}
+        <div class="panel panel-default topic-reply">
+            <div class="panel-body">
+                @include('topics._reply_box', ['topic' => $topic])
+                @include('topics._reply_list', ['replies' => $topic->replies()->with('user')->recent()->get()])
+            </div>
+        </div>
+
     </div>
 </div>
 @stop

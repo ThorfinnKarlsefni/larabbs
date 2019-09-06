@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Category;
 use App\Models\User;
+use App\Models\Reply;
 
 class Topic extends Model
 {
@@ -49,5 +50,10 @@ class Topic extends Model
     public function link($params = [])
     {
         return route('topics.show', array_merge([$this->id, $this->slug], $params));
+    }
+
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
     }
 }
