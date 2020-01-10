@@ -26,10 +26,10 @@ class VerificationCodesController extends Controller
                 return $this->response->errorInternal($message ?: '短信发送异常');
             }
         }
-        
+
         $key = 'verificationCode_'.str_random(15);
         $expiredAt = now()->addMinutes(10);
-        //缓存验证码十分钟过期 
+        //缓存验证码十分钟过期
         \Cache::put($key,['phone' => $phone,'code' => $code],$expiredAt);
 
         return $this->response->array([
