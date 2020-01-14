@@ -243,6 +243,6 @@ return [
             'expires' => env('SIGN_RAET_LIMITS_EXPIRES',1),
             'limit'   => env('SIGN_RATE_LIMITS',10)
         ]
-    ];
+    ],
 
 ];
