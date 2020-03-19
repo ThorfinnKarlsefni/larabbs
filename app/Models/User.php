@@ -14,6 +14,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable implements JWTSubject
 {
     use Traits\ActiveUserHelper;
+    use Traits\LastActivedAtHelper;
 
     use Notifiable {
         notify as protected laravelNotify;
