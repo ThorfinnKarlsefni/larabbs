@@ -18,7 +18,7 @@ class VerificationCodesController extends Controller
 
         if(!hash_equals($captchaData['code'],$request->captcha_code)){
             //验证码错误就清楚缓存
-            \Cache::forget($requset->captcha_key);
+            \Cache::forget($request->captcha_key);
             return $this->response->errorUnauthorized('验证码错误');
         }
 
