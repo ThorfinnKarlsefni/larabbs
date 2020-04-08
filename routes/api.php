@@ -48,6 +48,8 @@ $api->version('v1', [
             ->name('api.authorizations.destroy');
 
         // 游客可以访问的接口
+        $api->get('categories','CategoriesController@index')
+            ->name('api.categories.index');
 
         // 需要token 验证的接口
         $api->group(['middleware' => 'api.auth'],function($api){
