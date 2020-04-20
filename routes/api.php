@@ -92,6 +92,9 @@ $api->version('v1', [
             // 通知列表
             $api->get('user/notification','NotificationsController@index')
                 ->name('api.user.notification.index');
+            // 通知统计
+            $api->get('user/notification/stats','NotificationsController@stats')
+                ->name('api.user.notification.stats');
         });
     });
 });
