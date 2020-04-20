@@ -90,11 +90,14 @@ $api->version('v1', [
             $api->delete('topics/{topic}/replies/{reply}','RepliesController@destroy')
                 ->name('api.topic.replies.destroy');
             // 通知列表
-            $api->get('user/notification','NotificationsController@index')
+            $api->get('user/notifications','NotificationsController@index')
                 ->name('api.user.notification.index');
             // 通知统计
-            $api->get('user/notification/stats','NotificationsController@stats')
+            $api->get('user/notifications/stats','NotificationsController@stats')
                 ->name('api.user.notification.stats');
+            // 标记已读
+            $api->patch('user/read/notifications','NotificationsController@read')
+                ->name('api.user.notification.read');
         });
     });
 });
