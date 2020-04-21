@@ -46,6 +46,9 @@ $api->version('v1', [
         //删除token
         $api->delete('authorizations/current','AuthorizationsController@destroy')
             ->name('api.authorizations.destroy');
+        // 资源推荐
+        $api->get('links','LinksController@index')
+            ->name('api.links.index');
 
         // 游客可以访问的接口
         $api->get('categories','CategoriesController@index')
