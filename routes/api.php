@@ -49,6 +49,9 @@ $api->version('v1', [
         // 资源推荐
         $api->get('links','LinksController@index')
             ->name('api.links.index');
+        // 活跃用户
+        $api->get('actived/users','UsersController@activedIndex')
+            ->name('api.actived.users.index');
 
         // 游客可以访问的接口
         $api->get('categories','CategoriesController@index')
@@ -94,13 +97,13 @@ $api->version('v1', [
                 ->name('api.topic.replies.destroy');
             // 通知列表
             $api->get('user/notifications','NotificationsController@index')
-                ->name('api.user.notification.index');
+                ->name('api.users.notification.index');
             // 通知统计
             $api->get('user/notifications/stats','NotificationsController@stats')
-                ->name('api.user.notification.stats');
+                ->name('api.users.notification.stats');
             // 标记已读
             $api->patch('user/read/notifications','NotificationsController@read')
-                ->name('api.user.notification.read');
+                ->name('api.users.notification.read');
             // 当前登录用户权限
             $api->get('user/permissions','PermissionsController@index')
                 ->name('api.user.permissions.index');
